@@ -1,0 +1,41 @@
+# Semantic Location 정의 — office 환경 기준
+#
+# 좌표는 placeholder입니다.
+# RViz에서 Publish Point 또는 2D Pose Estimate 도구로
+# 실제 좌표를 측정하여 업데이트하세요.
+#
+# 좌표 측정 방법:
+#   1. RViz 상단 "Publish Point" 클릭 → 맵 위 클릭
+#   2. 터미널에서: ros2 topic echo /clicked_point
+#   3. x, y 값을 아래에 기입
+
+locations:
+  office_desk_1:
+    x: 0.0
+    y: 0.0
+    yaw: 0.0
+    description: "1번 사무실 책상"
+
+  meeting_room:
+    x: 0.0
+    y: 0.0
+    yaw: 1.57
+    description: "회의실 입구"
+
+  corridor_a:
+    x: 0.0
+    y: 0.0
+    yaw: 0.0
+    description: "복도 A"
+
+  lobby:
+    x: 0.0
+    y: 0.0
+    yaw: 0.0
+    description: "로비"
+
+  charging_station:
+    x: 0.0
+    y: 0.0
+    yaw: 3.14
+    description: "충전 스테이션 (로봇 홈)"
