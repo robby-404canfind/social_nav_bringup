@@ -4,7 +4,7 @@
   ros2 launch social_nav_bringup go_to.launch.py \
     target:=meeting_room
 
-기본적으로 패키지에 포함된 semantic_locations.yaml을 사용합니다.
+기본적으로 패키지에 포함된 semantic_locations.office.yaml을 사용합니다.
 공유 워크스페이스의 source 파일을 직접 수정했다면 locations_file로 명시 경로를 넘기세요.
 """
 
@@ -21,7 +21,7 @@ def generate_launch_description():
     default_locations_file = os.path.join(
         get_package_share_directory("social_nav_bringup"),
         "config",
-        "semantic_locations.yaml",
+        "semantic_locations.office.yaml",
     )
     return LaunchDescription(
         [
@@ -33,7 +33,7 @@ def generate_launch_description():
             DeclareLaunchArgument(
                 "locations_file",
                 default_value=default_locations_file,
-                description="semantic_locations.yaml 파일 경로 (기본: 패키지 기본 파일)",
+                description="semantic_locations.office.yaml 파일 경로 (기본: 패키지 기본 파일)",
             ),
             DeclareLaunchArgument(
                 "target_x",

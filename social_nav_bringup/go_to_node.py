@@ -15,7 +15,7 @@ Semantic Location 이름을 받아 Nav2 NavigateToPose Goal로 변환하고,
 공유 워크스페이스의 source YAML을 직접 수정했다면:
   ros2 run social_nav_bringup go_to_node --ros-args \
     -p target:=meeting_room \
-    -p locations_file:=/home/hunav_webots_ws/src/social_nav_bringup/config/semantic_locations.yaml
+    -p locations_file:=/home/hunav_webots_ws/src/social_nav_bringup/config/semantic_locations.office.yaml
 """
 
 import math
@@ -34,12 +34,12 @@ from social_nav_bringup.nav2_navigator import Nav2Navigator
 
 
 def get_default_locations_file() -> str:
-    """패키지 기본 semantic_locations.yaml 경로를 반환합니다."""
+    """패키지 기본 office semantic location 파일 경로를 반환합니다."""
     try:
         return os.path.join(
             get_package_share_directory("social_nav_bringup"),
             "config",
-            "semantic_locations.yaml",
+            "semantic_locations.office.yaml",
         )
     except PackageNotFoundError:
         return ""
@@ -197,7 +197,7 @@ class GoToNode(Node):
 
     파라미터:
       - target: Semantic Location 이름 (예: "meeting_room")
-      - locations_file: semantic_locations.yaml 경로
+      - locations_file: semantic_locations.office.yaml 경로
       - target_x, target_y, target_yaw: 직접 좌표 지정 (target보다 우선)
       - action_timeout_sec: 전체 액션 타임아웃 (기본 180초)
       - hard_stuck_timeout_sec: stuck 판정 임계 (기본 60초)
@@ -257,7 +257,7 @@ class GoToNode(Node):
             elif target:
                 if not locations_file:
                     self.get_logger().error(
-                        "[GoToNode] semantic_locations.yaml을 찾지 못했습니다. "
+                        "[GoToNode] semantic_locations.office.yaml을 찾지 못했습니다. "
                         "locations_file 파라미터를 명시하세요."
                     )
                     return

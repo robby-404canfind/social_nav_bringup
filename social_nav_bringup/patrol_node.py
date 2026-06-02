@@ -11,7 +11,7 @@ go_to()를 반복 호출하는 상위 액션입니다.
 
 공유 워크스페이스의 source YAML을 직접 수정했다면:
   ros2 run social_nav_bringup patrol_node --ros-args \
-    -p locations_file:=/home/hunav_webots_ws/src/social_nav_bringup/config/semantic_locations.yaml \
+    -p locations_file:=/home/hunav_webots_ws/src/social_nav_bringup/config/semantic_locations.office.yaml \
     -p waypoints:="['office_desk_1','meeting_room','corridor_a']" \
     -p duration_sec:=120.0
 """
@@ -111,7 +111,7 @@ class PatrolNode(Node):
     """patrol() Unit Action 실행 노드.
 
     파라미터:
-      - locations_file: semantic_locations.yaml 경로
+      - locations_file: semantic_locations.office.yaml 경로
       - waypoints: 순찰할 위치 이름 리스트 (YAML 배열 문자열)
       - duration_sec: 순찰 시간 기준값 (초, 기본 300)
       - action_timeout_sec: 각 go_to() 전체 타임아웃 (기본 180초)
@@ -159,7 +159,7 @@ class PatrolNode(Node):
             # Semantic Location 로드
             if not locations_file:
                 self.get_logger().error(
-                    "[PatrolNode] semantic_locations.yaml을 찾지 못했습니다. "
+                    "[PatrolNode] semantic_locations.office.yaml을 찾지 못했습니다. "
                     "locations_file 파라미터를 명시하세요"
                 )
                 return
