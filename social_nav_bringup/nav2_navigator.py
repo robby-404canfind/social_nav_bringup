@@ -57,10 +57,15 @@ class Nav2Navigator:
     def _on_feedback(self, feedback_msg):
         try:
             fb = feedback_msg.feedback
+            pose = getattr(fb, "current_pose", None)
+            position = getattr(getattr(pose, "pose", None), "position", None)
             data = {
                 "distance_remaining": getattr(fb, "distance_remaining", None),
                 "stamp": time.time(),
             }
+            if position is not None:
+                data["current_x"] = getattr(position, "x", None)
+                data["current_y"] = getattr(position, "y", None)
             if self._feedback_cb:
                 self._feedback_cb(data)
         except Exception as e:

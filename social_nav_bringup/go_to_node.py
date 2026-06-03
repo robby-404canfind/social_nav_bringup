@@ -86,6 +86,18 @@ def get_stuck_params(node: Node) -> Dict[str, Any]:
     }
 
 
+def feedback_pose_distance(nav_feedback: Dict[str, Any], goal: Dict[str, float]) -> Optional[float]:
+    """Nav2 feedback current_pose와 goal 사이의 2D 거리입니다."""
+    try:
+        current_x = nav_feedback.get("current_x")
+        current_y = nav_feedback.get("current_y")
+        if current_x is None or current_y is None:
+            return None
+        return math.hypot(float(current_x) - float(goal["x"]), float(current_y) - float(goal["y"]))
+    except (KeyError, TypeError, ValueError):
+        return None
+
+
 def exec_go_to(
     node: Node,
     navigator: Nav2Navigator,
@@ -180,6 +192,19 @@ def exec_go_to(
 
             status = getattr(res, "status", None)
             ok = bool(status == GoalStatus.STATUS_SUCCEEDED)
+            pose_dist = feedback_pose_distance(nav_feedback, goal)
+            if not ok and pose_dist is not None and pose_dist <= near_goal_eps:
+                node.get_logger().warn(
+                    f"[go_to] Nav2 status={status}이나 현재 pose가 목표 근처입니다 "
+                    f"(pose_dist={pose_dist:.2f}m <= {near_goal_eps:.2f}m) → 성공 처리"
+                )
+                ok = True
+            elif not ok and pose_dist is None and best_dist <= near_goal_eps:
+                node.get_logger().warn(
+                    f"[go_to] Nav2 status={status}이나 feedback상 목표 근처입니다 "
+                    f"(best_dist={best_dist:.2f}m <= {near_goal_eps:.2f}m) → 성공 처리"
+                )
+                ok = True
             if ok:
                 node.get_logger().info(
                     f"[go_to] 성공! 소요 시간: {now - accept_t:.1f}s"
