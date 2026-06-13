@@ -2,7 +2,7 @@
 """Nav2 NavigateToPose Action Client 래퍼.
 
 Semantic Location 또는 직접 좌표로 만든 goal dict를 Nav2 NavigateToPose
-Goal 메시지로 변환하고, feedback을 호출자에게 전달합니다.
+Goal 메시지로 변환하며 feedback을 호출자에게 전달합니다.
 """
 
 import math
@@ -20,7 +20,7 @@ from nav2_msgs.action import NavigateToPose
 class Nav2Navigator:
     """Nav2 NavigateToPose 액션에 대한 래퍼.
 
-    go_to_node와 patrol_node는 메인 스레드에서 rclpy.spin_once()를 반복하고,
+    go_to_node와 patrol_node는 메인 스레드에서 rclpy.spin_once()를 반복하며
     워커 스레드에서 goal 전송과 결과 확인을 수행합니다. 여기서는
     spin_until_future_complete 대신 짧은 polling으로 future 완료를 기다립니다.
     """

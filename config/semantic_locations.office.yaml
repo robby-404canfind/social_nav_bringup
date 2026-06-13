@@ -1,6 +1,6 @@
 # Semantic Location 정의 — office 환경 기준
 #
-# Ch02 social_nav_bringup 단독 go_to_node/patrol_node 유닛 액션 테스트용입니다.
+# Ch02 social_nav_bringup 단독 go_to_node/patrol_node 유닛 액션 테스트용 파일입니다.
 # Ch05 System2 통합 실습의 hall 좌표는
 # system2_bringup/config/semantic_locations.hall.yaml에만 반영합니다.
 

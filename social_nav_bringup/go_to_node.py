@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """go_to() Unit Action 노드.
 
-Semantic Location 이름을 받아 Nav2 NavigateToPose Goal로 변환하고,
+Semantic Location 이름을 받아 Nav2 NavigateToPose Goal로 변환하며
 피드백 모니터링 + stuck 감지를 수행합니다.
 
 사용법 (Docker 컨테이너 안에서):
