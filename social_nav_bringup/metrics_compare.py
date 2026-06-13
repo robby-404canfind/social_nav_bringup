@@ -23,9 +23,9 @@ BEHAVIOR_NAMES = {
 }
 
 METRIC_DESCRIPTIONS = {
-    "completed": "미션 목표에 실제로 도달했는지 여부입니다. True면 목표 반경 안에 도착한 것입니다.",
-    "robot_on_person_collision": "로봇이 사람과 충돌한 횟수입니다. 낮을수록 좋고, 이상적으로는 0이어야 합니다.",
-    "person_on_robot_collision": "사람이 로봇과 충돌한 횟수입니다. 낮을수록 좋고, 이상적으로는 0이어야 합니다.",
+    "completed": "미션 목표 도달 여부입니다. True면 목표 반경 안에 도착했습니다.",
+    "robot_on_person_collision": "로봇이 사람과 충돌한 횟수입니다. 낮을수록 좋습니다. 이상적으로는 0이어야 합니다.",
+    "person_on_robot_collision": "사람이 로봇과 충돌한 횟수입니다. 낮을수록 좋습니다. 이상적으로는 0이어야 합니다.",
     "minimum_distance_to_people": "실행 중 로봇이 사람에게 가장 가까워졌던 최소 거리입니다. 클수록 프록세믹스 측면에서 안전합니다.",
     "avg_distance_to_closest_person": "매 시점마다 가장 가까운 사람까지의 거리를 평균낸 값입니다. 전반적인 여유 공간을 보여줍니다.",
     "intimate_space_intrusions": "친밀 공간(약 0.45m 미만)을 침범한 횟수입니다. 낮을수록 좋습니다.",
@@ -33,15 +33,15 @@ METRIC_DESCRIPTIONS = {
     "time_to_reach_goal": "기록 시작부터 종료까지 목표에 도달하는 데 걸린 시간입니다. 짧을수록 효율적입니다.",
     "path_length": "로봇이 실제로 이동한 경로 길이입니다. 짧을수록 효율적인 경로로 볼 수 있습니다.",
     "final_distance_to_target": "실험 종료 시점에 목표까지 남아 있는 거리입니다. 0에 가까울수록 좋습니다.",
-    "social_force_on_agents": "로봇 존재 때문에 보행자에게 가해진 사회적 힘의 총량입니다. 낮을수록 사람에게 덜 부담을 준 것입니다.",
-    "avg_robot_linear_speed": "주행 중 로봇의 평균 선속도입니다. 무조건 낮거나 높다고 좋은 것은 아니며, 안전성과 효율성의 균형을 봐야 합니다.",
+    "social_force_on_agents": "로봇 존재 때문에 보행자에게 가해진 사회적 힘의 총량입니다. 낮을수록 사람에게 부담을 덜 줍니다.",
+    "avg_robot_linear_speed": "주행 중 로봇의 평균 선속도입니다. 값이 낮거나 높다고 항상 좋은 것은 아닙니다. 안전성과 효율성을 함께 봐야 합니다.",
 }
 
 CHART_DESCRIPTIONS = {
     "avg_distance_to_closest_person": "시간에 따라 가장 가까운 사람과의 거리가 어떻게 변하는지 보여줍니다.",
     "avg_robot_linear_speed": "시간에 따라 로봇 속도가 어떻게 변하는지 보여줍니다.",
-    "social_force_on_agents": "시간에 따라 보행자에게 미친 사회적 영향이 커지는 구간을 확인할 수 있습니다.",
-    "personal_space_intrusions": "개인 공간 침범이 언제 발생했는지 시간축으로 확인할 수 있습니다.",
+    "social_force_on_agents": "시간에 따라 보행자에게 미친 사회적 영향이 커지는 구간을 확인합니다.",
+    "personal_space_intrusions": "개인 공간 침범이 언제 발생했는지 시간축으로 확인합니다.",
 }
 
 SUMMARY_METRICS = [

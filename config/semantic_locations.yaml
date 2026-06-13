@@ -2,7 +2,7 @@
 #
 # 좌표는 placeholder입니다.
 # RViz에서 Publish Point 또는 2D Pose Estimate 도구로
-# 실제 좌표를 측정하여 업데이트하세요.
+# 실제 좌표를 측정해 업데이트하세요.
 #
 # 좌표 측정 방법:
 #   1. RViz 상단 "Publish Point" 클릭 → 맵 위 클릭
